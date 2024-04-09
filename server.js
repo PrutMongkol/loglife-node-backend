@@ -6,8 +6,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import databaseClient from "./services/database.mjs";
 import { v2 as cloudinary } from "cloudinary";
+
 import * as activityControllers from "./controllers/activityControllers.js";
 import * as activityControllersV2 from "./controllers/activityControllersV2.js";
+import * as activityControllersMock from "./controllers/activityControllersMock.js";
 import * as userControllers from "./controllers/userControllers.js";
 import * as userControllersV2 from "./controllers/userControllersV2.js"
 import * as activityImageControllers from "./controllers/activityImageControllers.js";
@@ -93,6 +95,13 @@ webServer.delete(
   auth,
   activityImageControllers.deleteActivityImage
 );
+
+// activities endpoints (mock version)
+webServer.get("/mock/activities/user/me", activityControllersMock.listActivities);
+webServer.get("/mock/activities/:activityId", activityControllersMock.getActivity);
+webServer.post("/mock/activities", activityControllersMock.createActivity);
+webServer.put("/mock/activities/:activityId", activityControllersMock.updateActivity);
+webServer.delete("/mock/activities/:activityId", activityControllers.deleteActivity);
 
 // dashboard endpoints
 webServer.get("/dashboard", auth, dashboardControllers.getDashboard);
