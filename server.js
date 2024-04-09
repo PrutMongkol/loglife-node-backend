@@ -60,6 +60,10 @@ webServer.get("/", async (req, res) => {
   res.send("Welcome to LogLife API");
 });
 
+webServer.get("/a", async (req, res) => {
+  res.json({ message: "/a works" });
+});
+
 // activities endpoints version 1
 // webServer.get("/activities/user/:userId", activityControllers.listActivities);
 // webServer.get("/activities/:activityId", activityControllers.getActivity);
