@@ -5,7 +5,7 @@
 Development API for accessing database of LogLife web application.
 - Add mock API endpoints
 
-Access via <[https://jsd6-loglife-backend.onrender.com](https://loglife-node-backend.onrender.com)>
+Access via <https://loglife-node-backend.onrender.com>
 
 ## Environment Variables
 For Production and Dev
